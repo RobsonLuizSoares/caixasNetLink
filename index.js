@@ -10,6 +10,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 require('./models/SendValues')
 const Caixa = mongoose.model('values')
+const db = require('./config/db')
 
 //Session
 
@@ -29,7 +30,7 @@ app.use((req, res, next) => {
  
 
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost/dbCaixas').then(()=> {
+mongoose.connect(db.mongoURI).then(()=> {
 console.log('Conectado ao banco MongoDB dbCaixas')
 }).catch((err)=> {
     console.log('Houve um erro ao se conectar ao MongoDB, '+ err)
