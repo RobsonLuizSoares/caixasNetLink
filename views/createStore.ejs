@@ -1,0 +1,27 @@
+
+<%- include('headerAdmin') %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white"> CADASTRO DE LOJA </h1>
+    </div>
+        <hr />
+    <div class="container my-3 ">
+        <h3>CADASTRAR LOJA </h3>
+    </div>
+    <div class="card">
+        <div class="card-body pb-5">
+            <form method="POST" action="/admin/loja/nova">
+                <div class="form-group">
+                    <label for="name">LOJA</label>
+                    <input type="text" class="form-control" id="name" name='name' placeholder="Digite o Nome da Loja">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar Loja</button>
+                <a href="/admin"> <button type="button" class="btn btn-secondary">Voltar</button></a>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<%- include('footer') %>
+

@@ -1,0 +1,49 @@
+
+<%- include('header') %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white">  Fechamento de Caixa </h1>
+    </div>
+        <hr />
+        <div class="container my-3 ">
+                <h3>Lançar Caixa </h3>
+        </div>
+            <div class="card">
+                <div class="card-body pb-5">
+                    <form method="POST" action="/admin/caixas/nova">   
+                        <div class= 'row '>
+                            <div class="form-group col-md-8"> 
+                                <label for="name">Nome:</label>
+                                <input type="text" class="form-control" id="name" name='name' placeholder="digite seu nome" >
+                            </div>
+                            <div class="form-group col-md-4"> 
+                                <strong><label>Selecione sua loja:</label></strong>
+                                <select class="form-control" name="store">
+                                        <% stores.forEach(store => { %>
+                                        <option value="<%= store._id %>"> <%= store.name %> </option>
+                                        <% }) %>
+                                </select> 
+                            </div>
+                        </div>
+        
+        <div class="row"> 
+            <div class="form-group col-md-6">
+                <label for="copias">Cópias:</label>
+                <input type="text" class="form-control" id="copy" name='copy' placeholder="digite o valor das cópias">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="impressoes">Impressões:</label>
+                <input type="text" class="form-control" id="print" name='print' placeholder="digite o valor das Impressões" >
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Fechar Caixa</button>
+        
+    </form>
+    </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include('footer') %>
+

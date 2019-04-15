@@ -1,0 +1,29 @@
+
+ <%- include('headerAdmin') %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white"> Editar Loja </h1>
+    </div>
+        <hr />
+    <div class="container my-3 ">
+        <h3> Editar Loja </h3>
+    </div>
+    <div class="card">
+        <div class="card-body pb-5">
+            <form method="POST" action="/admin/lojas/edit">
+                <input type="hidden" name="id" value="<%= stores._id %>" />
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" name='name' placeholder="Nome da Loja" value="<%= stores.name %>" >
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Editar Loja</button>
+                <a href="/admin/lojas"><button type="button" class="btn btn-secondary">Cancelar</button></a>
+                
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<%- include('footer') %>

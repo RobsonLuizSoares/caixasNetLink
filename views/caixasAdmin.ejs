@@ -1,0 +1,63 @@
+
+<%- include('headerAdmin') %>
+<div class=" adm container">
+    <h1 class="mt-4 text-center"> Consulta dos Caixas</h1>
+    <hr />
+    <div class="container text-center"> 
+        <h3> Consultar caixas por Loja</h3>
+            <br>
+            <div class="btn-group mr-2 " role="group" aria-label="First group">
+                    <a href="/admin/caixasloja/Avenida"><button type="button" class="btn btn-primary">Avenida</button></a>
+                    &nbsp;<a href="/admin/caixasloja/Unespar"><button type="button" class="btn btn-primary">Unespar</button></a>
+                    &nbsp;<a href="/admin/caixasloja/São%20Cristóvão"><button type="button" class="btn btn-primary">São Cristóvão</button></a>
+                    &nbsp;<a href="/admin/caixasloja/Cruz%20Machado"> <button type="button" class="btn btn-primary">Cruz Machado</button></a>
+            </div>
+    </div>
+    <hr />
+    <div class="form-group mx-auto col-md-10"> 
+    
+    <% values.forEach(info => { %>
+        <div class="card my-3">
+            <div class="card-body">
+                <table class="table table-hover ">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Data:</th>
+                            <td><%= info.date %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nome:</th>
+                            <td><%= info.name %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Loja:</th>
+                            <td><%= info.store.name %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cópias:</th>
+                            <td><%= info.copy %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Impressões:</th>
+                            <td><%= info.print %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div class="row"> 
+                <a href= "edit/<%= info._id %>"><button class="btn btn-sm mx-2 btn-warning"> Editar</button></a>
+               <form action="/admin/caixas/excluir" method="POST">
+                   <input type="hidden" name="id" value="<%= info._id %>" />
+                   <button class="btn btn-sm btn-danger"> Excluir</button>
+               </form>
+            </div>
+                
+                
+            </div>
+            
+        </div>
+    <% }) %>
+</div>
+</div>
+<%- include('footer') %>

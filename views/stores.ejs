@@ -1,0 +1,36 @@
+
+<%- include('headerAdmin') %>
+<div class=" adm container">
+    <h1 class="mt-4"> Lista das Lojas - Administração</h1>
+    <hr />
+    <h3> LOJAS</h3>
+    <hr />
+    <% stores.forEach(info => { %>
+        <div class="card my-3">
+            <div class="card-body col-md-10 mx-auto">
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rede Net Link</th>
+                            <th scope="col">LOJA</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Loja</th>
+                            <td><%= info.name %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <a href= "/admin/lojas/edit/<%= info._id %>"><button class="btn btn-sm mx-2 btn-warning"> Editar</button></a>
+               <form action="/admin/lojas/excluir" method="POST">
+                   <input type="hidden" name="id" value="<%= info._id %>" />
+                   <button type="submit" class="btn btn-sm m-2 btn-danger"> Excluir</button>
+               </form>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<%- include('footer') %>

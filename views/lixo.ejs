@@ -1,0 +1,118 @@
+<!-- <% values.forEach(info => { %>
+        <div class="card my-3">
+            <div class="card-body">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">-</th>
+                            <th scope="col">Dados</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Data</th>
+                            <td><%= info.date %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nome</th>
+                            <td><%= info.name %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cópias</th>
+                            <td><%= info.copy %></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Impressões</th>
+                            <td><%= info.print %></td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            
+                <a href= "/caixas/edit/<%= info._id %>"><button class="btn mx-2 btn-warning"> Editar</button></a>
+               <form action="/caixas/excluir" method="POST">
+                   <input type="hidden" name="id" value="<%= info._id %>" />
+                   <button class="btn m-2 btn-danger"> Excluir</button>
+               </form>
+                
+            </div>
+            
+        </div>
+    <% }) %>
+
+    ///////
+
+    <h1>RESULTS </h1>
+
+ 
+    <%- include('headerAdmin') %>
+    <div class=" adm container">
+        <h1 class="mt-4"> Consulta dos Caixas - Administração</h1>
+        <hr />
+        <h3> Consulta dos Caixas</h3>
+        <hr />
+        <div class="form-group col-md-4"> 
+                <strong><label>Pesquisar por loja:</label></strong>
+                <select class="form-control" name="store">
+                        <% stores.forEach(store => { %>
+                        <option value="<%= store._id %>"> <%= store.name %> </option>
+                        <% }) %>
+                </select> 
+            </div>
+        <hr />
+        <% values.forEach(info => { %>
+            <div class="card my-3">
+                <div class="card-body">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr>
+                                <th scope="col">-</th>
+                                <th scope="col">Dados</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Data:</th>
+                                <td><%= info.date %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nome:</th>
+                                <td><%= info.name %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Loja:</th>
+                                <td><%= info.store.name %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cópias:</th>
+                                <td><%= info.copy %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Impressões:</th>
+                                <td><%= info.print %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <a href= "edit/<%= info._id %>"><button class="btn btn-sm mx-2 btn-warning"> Editar</button></a>
+                   <form action="/admin/caixas/excluir" method="POST">
+                       <input type="hidden" name="id" value="<%= info._id %>" />
+                       <button class="btn btn-sm m-2 btn-danger"> Excluir</button>
+                   </form>
+                    
+                </div>
+                
+            </div>
+        <% }) %>
+    </div>
+    
+    <%- include('footer') %>
+
+    ////
+
+    <strong><label>Pesquisar por loja:</label></strong>
+    <select class="form-control" name="store">
+            <% stores.forEach(store => { %>
+            <option value="<%= store._id %>"> <%= store.name %> </option>
+            <% }) %>
+    </select> 
+</div>

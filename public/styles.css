@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1f2f6;
+}
+.bg-user{
+    margin-top: 2em;
+    background-image: url("/images/fotoloja.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: azure;
+    min-height: 60vh;  
+}
+@media only screen and (max-width: 767px) {
+.bg-user {
+    min-height: 40vh; 
+    }
+}
+.bg-admin{
+    margin-top: 4em;
+    background-image: url("/images/bgAdmin.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: azure;
+    min-height: 60vh;  
+}
+@media only screen and (max-width: 767px) {
+.bg-admin {
+    margin-top: 3em;
+    min-height: 40vh; 
+    }
+}
+.bg-nos{
+    margin-top: 4em;
+    background-image: url("/images/paris24.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: azure;
+    min-height: 60vh;  
+}
+@media only screen and (max-width: 767px) {
+.bg-nos {
+    margin-top: 3em;
+    min-height: 40vh; 
+    }
+}
+
+.hed{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(231, 9, 9);
+    font-size: 3.2em;
+    color: #ffffff;
+    text-align: center;
+    align-items: center;
+    padding-top: 10px;
+    line-height: 1em;
+    margin-top: 25px;
+}
+.hed h5{
+    text-align: center;
+    padding-top: 0;
+    font-size: 0.4em;
+    padding-bottom: 15px;
+}
+.footer{
+    border-top: 1px solid #030303;
+    bottom: 0;
+    font-size: 0.4em;
+    text-align: center;
+    align-items: center;
+    padding-top: 50px;
+}
+.adm{
+    min-height: 95vh;
+}
+.user{
+    min-height: 95vh;
+}
+.link{
+    color: black;
+    font-weight: 700;
+}
+.link:hover{
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1.2em;
+    color: red;
+}

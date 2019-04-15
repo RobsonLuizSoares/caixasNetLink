@@ -1,0 +1,11 @@
+<h1> Resultados Por Loja</h1>
+
+
+
+<hr />
+
+        <% stores.forEach(store => { %>
+         <a href="/admin/caixasloja/<%= store.name %>" > <h5><%= store.name %></h5></a>
+        <% }) %>
+
+        <a href="/admin/caixasloja"><button class="btn btn-primary">Voltar</button></a>
