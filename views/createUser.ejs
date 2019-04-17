@@ -1,0 +1,40 @@
+<%- include('headerAdmin') %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white"> CADASTRO DE USUÁRIO </h1>
+    </div>
+        <hr />
+    <div class="container text-center my-5 ">
+        <h3>CADASTRAR USUÁRIO </h3>
+    </div>
+    <div class="card">
+        <div class="card-body py-5"  >
+            <div class="card-body pb-5 mx-auto col-md-8" style= "border-radius: 8px; background-color: #f0f0f0"> 
+                <form method="POST" action="/admin/register">
+                    <div class="form-group mx-auto col-md-10">
+                            <% if (typeof error == "string") { %> 
+                                <div class="alert alert-danger">
+                                    <%= error %>
+                                </div>
+                            <% } %>
+                            <% if (typeof success == "string") {%>
+                                <div class="alert alert-success">
+                                    <%= success %>
+                                </div>
+                                <% } %>
+                        <h6><label class="" for="name">Usuário: </label></h6>
+                        <input type="text" class="form-control" id="user" name='user'  placeholder="Digite o Nome do Usuário" >
+                        <h6><label class="mt-3 " for="name">Senha: </label></h6>
+                        <input type="password" class="form-control" id="password" name='password' placeholder="Digite uma senha para o usuário">
+                        
+                    </div>
+                    <button type="submit" class="btn ml-5 mt-3 btn-primary">Criar usuário</button>
+                    <a href="/admin"> <button type="button" class="btn ml-3 mt-3 btn-secondary">Voltar</button></a>
+                </form>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include('footer') %>

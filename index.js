@@ -9,8 +9,13 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('connect-flash')
 require('./models/SendValues')
+require('./models/User')
 const Caixa = mongoose.model('values')
 const db = require('./config/db')
+const bcrypt = require('bcryptjs')
+const User = mongoose.model('users')
+
+
 
 //Session
 
@@ -19,6 +24,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
 app.use(flash())
 // Middleware
 

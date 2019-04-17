@@ -3,10 +3,15 @@ const router = express.Router()
 const session = require('express-session')
 const flash = require('connect-flash')
 const mongoose = require('mongoose')
+const moment = require('moment')
 require('../models/Store')
 require('../models/SendValues')
+require('./../models/User')
 const Store = mongoose.model('stores')
 const SendValues = mongoose.model('values')
+const User = mongoose.model('users')
+
+moment.locale("pt-br")
 
 // Home Admin
 router.get('/', (req, res) => {
@@ -15,24 +20,25 @@ router.get('/', (req, res) => {
 
 
 // Rota para filtrar por Loja
-router.get('/caixasloja', (req, res) => {
+/* router.get('/caixasloja', (req, res) => {
     Store.find().then((stores) => {
         res.render('resultsStore', { stores: stores })
     }).catch((err) => {
         if (err) {
             console.log('Erro ao listar Resultados por Loja')
         }
-    })
-})
+    }) 
+}) */
 //Rota por nome da loja
 router.get('/caixasloja/:name', (req, res) => {
 
     Store.findOne({ name: req.params.name }).then((stores) => {
         if (stores) {
 
-            SendValues.find({ store: stores._id}).then((values) => {
-              //  res.render("caixasAdmin", {values: values, stores: stores} )
-                 res.render("results", {values: values, stores: stores})
+            SendValues.find({ store: stores._id }).sort({date: -1}).then((values) => {
+              
+                res.render("results", {values: values, stores: stores, moment})
+                
             }).catch(()=> { 
                 console.log('Erro ao listar os caixas da loja específica')
             })
@@ -49,19 +55,25 @@ router.get('/caixasloja/:name', (req, res) => {
 
 //Rota para consulta dos valores enviados. 
 router.get('/caixas', (req, res) => {
-    SendValues.find().populate("store").sort({date: -1 }).then((values) => {
-
-        Store.find().then((stores) => {
-
-            res.render("caixasAdmin", {values: values, stores: stores} )
-        })
-
+    
+    SendValues.find().populate("store").sort({date: -1}).then((values) => { 
         
-    }).catch((err) => {
-        if(err) {
-            console.log('Erro: ' + err)
+        if (values){ 
+
+            Store.find().then((stores) => { 
+
+            res.render("caixasAdmin", {values: values , stores: stores, moment} )
+            
+                   
+            }).catch((err) => {
+            
+                console.log('Erro rude: ' + err)
+            })
+        }else{
+            console.log('não existem valores a serem lançados')
         }
-    }) 
+    })
+
 })
 // Rota Add Loja
 router.get('/novaloja',(req, res) => {
@@ -211,6 +223,37 @@ router.post('/lojas/excluir', (req, res) => {
    })
 })
 
+//Rotas para Cadastro
+
+router.get('/register', (req, res) => {
+    res.render('createUser')
+
+})
+
+router.post('/register', (req, res) => {
+   
+    if (!req.body.user ) {
+                createUsers.render(req, res, "Digite um Nome")             
+    } else if (!req.body.password) {
+                createUsers.render(req, res, "Escolha uma senha ")                
+    } else {
+     
+
+        
+      const newUser = {
+        user: req.body.user,
+        password: req.body.password
+    }
+    new User(newUser)
+    .save()
+    .then(()=> { console.log('Novo usuário cadastrado com sucesso') })
+    .catch((err)=> {console.log('Erro ao criar o usuário ' + err)})
+ 
+   res.render('createUser')
+    
+} 
+
+})
 
 //Rota para OS em desenvolvimento
 

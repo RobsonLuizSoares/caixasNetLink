@@ -5,7 +5,12 @@ require('../models/Store')
 require('../models/SendValues')
 const Store = mongoose.model("stores")
 const SendValues = mongoose.model("values")
+const User = mongoose.model("users")
+const bcryptjs = require('bcryptjs')
 const sendcaixas = require('./../inc/sendcaixas')
+
+
+
 
 
 
@@ -21,6 +26,7 @@ router.get('/caixas', (req, res) => {
 router.get('/caixas/nova', (req, res) => {
     Store.find().then((stores) => {
         res.render("sendCaixas", {stores: stores})
+       
     }).catch((err)=> {
         if (err){
             console.log('Erro ao carregar formulário ', err)
@@ -39,32 +45,37 @@ router.get('/caixas/confirm', (req, res) => {
 //Rota para enviar caixa
 router.post('/admin/caixas/nova', (req, res) => {
 
-    if (!req.body.name || typeof req.body.name == undefined || req.body.name == null) {
-        sendcaixas.render(req, res, "Favor inserir o nome")             
-    } else if (!req.body.copy || typeof req.body.copy == undefined || req.body.copy == null) {
-        sendcaixas.render(req, res, "Favor informar o valor das cópias")       
-    }else if (!req.body.print || typeof req.body.print == undefined || req.body.print == null) {
-        sendcaixas.render(req, res, "Favor informar  o valor das impressões")                
-    }else if (!req.body.store || typeof req.body.store == undefined || req.body.store == null) {
-        sendcaixas.render(req, res, "Selecione sua loja")                
-    }else {
-     
-     const newCaixa = {
+        
+     const newCaixa = {  
         name: req.body.name,
-        copy: req.body.copy,
-        print: req.body.print,
-        store: req.body.store
-    }
-
+        store: req.body.store,
+        copyP: req.body.copyP,
+        copyL: req.body.copyL,
+        printP: req.body.printP,
+        printL: req.body.printL,
+        laserC: req.body.laserC,
+        jetC: req.body.jetC,
+        plotter: req.body.plotter,
+        products: req.body.products,
+        internet: req.body.internet,
+        obs: req.body.obs
+     }    
     new SendValues(newCaixa)
         .save()
         .then(()=> { console.log('Novo Caixa salvo com sucesso') })
         .catch((err)=> {console.log('Erro ao salvar o Caixa ' + err)})
      
-       
+  
         res.redirect("success")
-    } 
+    
 })
+
+// Rota para login
+
+
+  
+
+
  /*
 //esses abaixo ainda não passei para o admin
 router.get('/sendcaixas', (req, res) => {
