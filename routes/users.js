@@ -81,9 +81,9 @@ router.post('/admin/caixas/nova', (req, res) => {
 router.get('/sendcaixas', (req, res) => {
     res.render('sendcaixas')
 })
-
+ */
 router.get('/os', (req, res) => {
     res.render("os")
 })
- */
+
 module.exports = router

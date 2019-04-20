@@ -1,34 +1,168 @@
 <%- include('header') %>
 <div class="container user py-4">
-    <div class="alert text-center bg-info my-4">
-        <h1 class="mt-4 "> Ordens de Serviço </h1>
+    <div class="alert bg-success text-center my-4">
+        <h1 class="mt-4 text-white"> Ordens de Serviço </h1>
     </div>
         <hr />
-    <div class="container my-3 ">
-        <h3> Abrir uma Ordem de Serviço </h3>
-    </div>
+    
     <div class="card">
-        <div class="card-body pb-5">
+        <div class=" card-body pb-5">
             <form>
-                <div class="form-group">
-                    <label for="client">Cliente</label>
-                    <input type="text" class="form-control" id="client" name='client' placeholder="digite o nome do cliente">
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-4">
-                            <label for="fone">Telefone</label>
-                            <input type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                <div class="container">
+                        <h3 class="text-center"> Ordem de Serviço </h3><hr />
+                    <div class="row d-flex flex-row-reverse ">
+                        <div class="titleOs  my-auto col-md-3 alert alert-danger">
+                            <h5 class="my-auto pl-1"><span>Número O.S:  &nbsp; </span><span class="font-weight-bolder"> 250916 </span></h5>
+                        </div>
+                        <div class="form-group  col-md-3">
+                            <label for="dateNow">Data de Entrega:</label>
+                            <input type="date" class="form-control " id="dateOsInit" name='dateOsInit' >
+                        </div>
+                        <div class="form-group   col-md-3">
+                                <label for="dateOk">Data Atual:</label>
+                                <input type="date" class="form-control " id="dateOsFinal" name='dateOsFinal'  >
+                        </div>
+                        <div class="form-group my-auto text-center col-md-3"> 
+                            <h4 >  Net Link</h4>
+                            <h6>Conectando Pessoas</h6>
+                        </div>
                     </div>
-                    <div class="form-group col-md-8">
-                            <label for="emailClient">E-mail</label>
-                            <input type="email" class="form-control" id="emailClient" name='emailClient' placeholder="digite o e-mail do cliente">
+                    <hr />
+                    <div class="row my-3"></div>
+
+                    <div class="row ">
+                         
+                            <div class="form-group col-md-2">
+                                <label for="dateNow">Cadastro:</label>
+                                <input type="text" class="form-control " id="idClient" name='idClient' >
+                            </div> 
+                            <div class="form-group col-md-4">
+                                <label for="client">Cliente:</label>
+                                <input type="text" class="form-control " id="client" name='client' placeholder="digite o nome do cliente">
+                            </div>
+                        
+                        <div class="form-group col-md-2">
+                                <label for="fone">Telefone</label>
+                                <input type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="emailClient">E-mail / Rede Social</label>
+                                <input type="email" class="form-control" id="emailClient" name='emailClient' placeholder="digite o e-mail do cliente">
+                        </div>
+                       
                     </div>
+                    <hr />
+                    <div class="row my-3"></div>
+
+                    <div class="row ">
+                        <div class="form-group col-md-3">
+                            <label for="fone">Serviço:</label>
+                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <option>...</option>
+                                <option>Cópia</option>
+                                <option>Outros Serviços</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="fone">Folhas:</label>
+                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <option>...</option>
+                                <option>Frente</option>
+                                <option>Frente e Verso</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="fone">Tamanho:</label>
+                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <option>...</option>
+                                <option>Reduzido</option>
+                                <option>Ampliado</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="fone">Serviço</label>
+                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <option>...</option>
+                                <option>Encadernação</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="fone">Cor:</label>
+                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <option>...</option>
+                                <option>Cinza</option>
+                                <option>Azul</option>
+                                <option>Vermelho</option>
+                                <option>Amarelo</option>
+                                <option>Listrado</option>
+                                <option>Bolinhas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row my-3"></div>
+
+                    <div class="form-group">
+                        <label for="infoOs">Descrição:</label>
+                        <textarea class="form-control" id="infoOs" name='infoOs' placeholder="Descrição do serviço" rows="3"></textarea>
+                    </div>
+                    <hr />
+                    <div class="row my-3"></div>
+
+                    <div class="row "> 
+                        
+                            <div class="form-group col-md-2">
+                                <label for="client">Valor Total:</label>
+                                <input type="text" class="form-control " id="client" name='client' placeholder="Valor Total">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="dateNow">Valor Entrada:</label>
+                                <input type="text" class="form-control " id="dateOsInit" name='dateOsInit' placeholder="Valor Entrada" >
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="fone">Pago:</label>
+                                    <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                        <option>...</option>
+                                        <option>Sim</option>
+                                        <option>Não</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="fone">Funcionária:</label>
+                                    <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                        <option>...</option>
+                                        <option>Chefe Lya</option>
+                                        <option>Paty Pequena</option>
+                                        <option>Paty Loira</option>
+                                        <option>Gaiteira</option>
+                                    </select>
+                            </div>
+                       
+                            <div class="col-md-3 bg-warning">
+                                <h5> Guichê: </h5>
+                                <select type="text" class="form-control my-1" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                        <option>...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                            </div>
+                        
+                    </div>
+                    
+                    <div class="row my-3"></div>
+                    <hr />
+                    <button type="submit" class="btn  btn-primary">Salvar</button>
                 </div>
-                <div class="form-group">
-                    <label for="infoOs">Serviço</label>
-                    <textarea class="form-control" id="infoOs" name='infoOs' placeholder="Descrição do serviço" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn  btn-primary">Gravar</button>
             </form>
         </div>
     </div>
