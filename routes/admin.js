@@ -208,7 +208,6 @@ router.post('/caixas/excluir', (req, res) => {
  })
 
 
-
 //Rota para deletar a loja
 router.post('/lojas/excluir', (req, res) => {
     

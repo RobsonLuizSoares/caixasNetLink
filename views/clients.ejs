@@ -12,6 +12,10 @@
     <div class="form-group mx-auto col-md-12"> 
     <a href="/"><button class="btn btn-primary">Voltar</button></a>
     
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <%- include('modal') %>
+    </div>
+
     <% clients.forEach(client => { %>
         
         <div class="card my-3">
@@ -57,15 +61,15 @@
                                 <a href= "/clientes/edit/<%= client.number %>"><button class="btn btn-sm mr-3 btn-outline-warning"> Editar</button></a>
                             <form action="/clientes/excluir" method="POST">
                                 <input type="hidden" name="number" value="<%= client.number %>" />
-                                <button class="btn btn-sm mr-3 btn-outline-danger"> Excluir</button>
+                                <button id="confirmBtn"> </button>
                             </form>
+                            <button class="btn btn-sm mr-3 btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Excluir</button>
                         </div>
                     </div> 
                     
                 </div>
                 
             </div>
-            
         </div>
     <% }) %>
 </div>

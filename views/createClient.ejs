@@ -8,12 +8,13 @@
         <h3>CADASTRAR CLIENTE </h3>
     </div>
     <div class="card">
-        <div class="card-body pb-5">
-            <form method="POST" action="/clients/new">
+        <div class="card-body pb-5" data-set="data-row">
+           
+            <form method="POST"  action="/clients/new">
                 <div class="row">
                     <div class="form-group col-md-7">
                         <label for="name">Cliente:</label>
-                        <input type="text" class="form-control" id="name" name='name' placeholder="Digite o Nome do(a) Cliente">
+                        <input type="text" class="form-control" id="name"   name='name' placeholder="Digite o Nome do(a) Cliente">
                     </div>
 
                     <div class="form-group col-md-2">
@@ -37,16 +38,63 @@
                         <input type="text" class="form-control" id="socialMedia" name='socialMedia' placeholder="Digite o email ou uma rede social do cliente">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3">Cadastrar Cliente</button>
+                <button type="submit" class="btn btn-primary mt-3 btn-confirm"  >Cadastrar Cliente</button>
                 <a href="/"> <button type="button" class="btn btn-secondary ml-2 mt-3">Voltar</button></a>
             </form>
+            
+            
         </div>
     </div>
 
 </div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('.modal-title').text('New message to ' + recipient)
+          modal.find('.modal-body input').val(recipient)
+        })
+        </script>
+
 <script type="text/javascript">
     $("#phone").mask("(99) 99999-9990")
     $("#birthday").mask("00/00/0000", { placeholder: " __/__/____" })
 </script>
+
 
 <%- include('footer') %></div>

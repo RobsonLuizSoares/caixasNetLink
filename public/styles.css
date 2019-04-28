@@ -162,3 +162,6 @@ border-color: #2ecc71;
     background: #f30d0d;
     color:white;
 }
+#confirmBtn {
+display: none;
+}
