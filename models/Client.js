@@ -2,9 +2,9 @@
 const mongoose = require('mongoose'),
 Schema = mongoose.Schema,
 autoIncrement = require('mongoose-auto-increment')
-const db = require('../config/db')
 
-var connection = mongoose.createConnection('mongodb://localhost/dbCaixas')
+
+connection = mongoose.createConnection('mongodb+srv://robsonptrainer:250916@clusterrobson-bpumc.gcp.mongodb.net/test?retryWrites=true|| mongodb://localhost/dbCaixas')
 
 autoIncrement.initialize(connection)
 
@@ -33,5 +33,5 @@ var Client = new Schema({
     
 })
 Client.plugin(autoIncrement.plugin, { model:'Client', field: 'number'})
-var clients = connection.model('clients', Client )
+ connection.model('clients', Client )
 //mongoose.model("clients", Client)
