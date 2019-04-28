@@ -182,7 +182,7 @@ router.post('/caixas/edit', (req, res) => {
         values.store = req.body.store
 
     values.save().then(() => {
-        console.log('Postagem editada com sucesso')
+        console.log('Caixa editado com sucesso')
         res.redirect('/admin/caixas')
     }).catch((err) => {
         console.log('Problema ao editar Caixa')

@@ -12,15 +12,15 @@
                         <h3 class="text-center"> Ordem de Serviço </h3><hr />
                     <div class="row d-flex flex-row-reverse ">
                         <div class="titleOs  my-auto col-md-3 alert alert-danger">
-                            <h5 class="my-auto pl-1"><span>Número O.S:  &nbsp; </span><span class="font-weight-bolder"> 250916 </span></h5>
+                            <h5  class="my-auto pl-1"><span>Número O.S:  &nbsp; </span> <input class="font-weight-bolder" type="hidden" name="order"/></h5>
                         </div>
                         <div class="form-group  col-md-3">
                             <label for="dateNow">Data de Entrega:</label>
-                            <input type="date" class="form-control " id="dateOsInit" name='dateOsInit' >
+                            <input type="date" class="form-control " id="delivery" name='delivery' >
                         </div>
                         <div class="form-group   col-md-3">
                                 <label for="dateOk">Data Atual:</label>
-                                <input type="date" class="form-control " id="dateOsFinal" name='dateOsFinal'  >
+                                <input type="date" class="form-control " id="register" name='register'  >
                         </div>
                         <div class="form-group my-auto text-center col-md-3"> 
                             <h4 >  Net Link</h4>
@@ -34,7 +34,7 @@
                          
                             <div class="form-group col-md-2">
                                 <label for="dateNow">Cadastro:</label>
-                                <input type="text" class="form-control " id="idClient" name='idClient' >
+                                <input type="text" class="form-control " id="number" name='number' >
                             </div> 
                             <div class="form-group col-md-4">
                                 <label for="client">Cliente:</label>
@@ -43,11 +43,11 @@
                         
                         <div class="form-group col-md-2">
                                 <label for="fone">Telefone</label>
-                                <input type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                                <input type="text" class="form-control" id="phone" name='phone' placeholder="digite o telefone do cliente">
                         </div>
                         <div class="form-group col-md-4">
                                 <label for="emailClient">E-mail / Rede Social</label>
-                                <input type="email" class="form-control" id="emailClient" name='emailClient' placeholder="digite o e-mail do cliente">
+                                <input type="email" class="form-control" id="socialMedia" name='socialMedia' placeholder="digite o e-mail do cliente">
                         </div>
                        
                     </div>
@@ -57,7 +57,7 @@
                     <div class="row ">
                         <div class="form-group col-md-3">
                             <label for="fone">Serviço:</label>
-                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                            <select type="text" class="form-control" id="wcopy" name='wcopy' >
                                 <option>...</option>
                                 <option>Cópia</option>
                                 <option>Outros Serviços</option>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="fone">Folhas:</label>
-                            <select type="text" class="form-control" id="fone" name='fone' placeholder="digite o telefone do cliente">
+                            <select type="text" class="form-control" id="fone" name='fone' >
                                 <option>...</option>
                                 <option>Frente</option>
                                 <option>Frente e Verso</option>
@@ -104,7 +104,7 @@
 
                     <div class="form-group">
                         <label for="infoOs">Descrição:</label>
-                        <textarea class="form-control" id="infoOs" name='infoOs' placeholder="Descrição do serviço" rows="3"></textarea>
+                        <textarea class="form-control" id="desc" name='desc' placeholder="Descrição do serviço" rows="3"></textarea>
                     </div>
                     <hr />
                     <div class="row my-3"></div>

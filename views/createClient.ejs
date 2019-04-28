@@ -1,0 +1,52 @@
+<%- include('header') %>
+<div class="container user py-4" >
+    <div class="alert text-center bg-danger my-4">
+        <h1 class="mt-4 text-white"> CADASTRO DE CLIENTE </h1>
+    </div>
+        <hr />
+    <div class="container my-3 ">
+        <h3>CADASTRAR CLIENTE </h3>
+    </div>
+    <div class="card">
+        <div class="card-body pb-5">
+            <form method="POST" action="/clients/new">
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <label for="name">Cliente:</label>
+                        <input type="text" class="form-control" id="name" name='name' placeholder="Digite o Nome do(a) Cliente">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="name"> </label>
+                        <input type="hidden" class="form-control" id="number" name='number' >
+                    </div>
+
+
+                    <div class="form-group col-md-3">
+                        <label for="name">Nascimento:</label>
+                        <input type="text" class="form-control" id="birthday" name='birthday'  >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Celular:</label>
+                        <input type="text" class="form-control" id="phone" name='phone' placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="name">Email / Rede Social:</label>
+                        <input type="text" class="form-control" id="socialMedia" name='socialMedia' placeholder="Digite o email ou uma rede social do cliente">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Cadastrar Cliente</button>
+                <a href="/"> <button type="button" class="btn btn-secondary ml-2 mt-3">Voltar</button></a>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $("#phone").mask("(99) 99999-9990")
+    $("#birthday").mask("00/00/0000", { placeholder: " __/__/____" })
+</script>
+
+<%- include('footer') %></div>

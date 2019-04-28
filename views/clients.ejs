@@ -1,0 +1,73 @@
+
+<%- include('header') %>
+<div class=" adm container mt-4">
+    
+    
+        <hr />
+    <h3 class="text-center"> Lista de Clientes Cadastrados:</h3>
+    <hr />
+    <div class="col-md-10 mx-auto">
+        <input type="text" class="form-control my-2" placeholder="Buscar cliente ...">
+    </div>
+    <div class="form-group mx-auto col-md-12"> 
+    <a href="/"><button class="btn btn-primary">Voltar</button></a>
+    
+    <% clients.forEach(client => { %>
+        
+        <div class="card my-3">
+            <div class="card-body">
+                <table class=" col-md-10 mx-auto my-3 table table-sm table-bordered  table-hover ">
+                    <tbody>
+                        <tr class="row px-0 mx-0">
+                            <th class=" col-md-2 " >
+                                <h6 class="text-center my-auto">Cliente N.:</h6>
+                            </th>
+                            <th class=" col-md-1 " >
+                                <h6 class="text-center my-auto"><%= client.number %></h6>
+                            </th>
+                            <td class=" pl-5 my-auto  col-md-5">
+                                <%= client.name %>
+                            </td>
+                            <th class=" col-md-1" >
+                                <h6 class="text-center my-auto">Fone:</h6>
+                            </th>
+                            <td class=" pl-5 my-auto  col-md-3">
+                                <%= client.phone %>
+                            </td>  
+                        </tr>
+                        <tr class="row px-0 mx-0">
+                            <th class=" col-md-3 " >
+                                <h6 class="text-center my-auto">Email/Rede Social:</h6>
+                            </th>
+                            <td class=" pl-5 my-auto  col-md-5">
+                                <%= client.socialMedia %>
+                            </td> 
+                            <th class=" col-md-1 " >
+                                <h6 class="text-center my-auto">Data:</h6>
+                            </th>
+                            <td class=" pl-5 my-auto  col-md-3">
+                                <%= moment(client.date).format("DD [/] MM [/] YYYY") %>
+                            </td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container p-0 m-0">
+                    <div class="col-md-10 mx-auto ">
+                        <div class="row"> 
+                                <a href= "/clientes/edit/<%= client.number %>"><button class="btn btn-sm mr-3 btn-outline-warning"> Editar</button></a>
+                            <form action="/clientes/excluir" method="POST">
+                                <input type="hidden" name="number" value="<%= client.number %>" />
+                                <button class="btn btn-sm mr-3 btn-outline-danger"> Excluir</button>
+                            </form>
+                        </div>
+                    </div> 
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    <% }) %>
+</div>
+</div>
+<%- include('footer') %>

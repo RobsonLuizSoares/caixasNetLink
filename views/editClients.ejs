@@ -1,0 +1,50 @@
+
+ <%- include('header') %>
+ <div class="container user py-4" >
+     <div class="alert text-center bg-danger my-4">
+         <h1 class="mt-4 text-white"> Editar Cadastro </h1>
+     </div>
+         <hr />
+     <div class="container my-3 ">
+         <h3> Editar Cadastro </h3>
+     </div>
+     <div class="card">
+         <div class="card-body pb-5">
+             <form method="POST" action="/clientes/edit">
+                 <input type="hidden" name="number" value="<%= clients.number %>" />
+                 <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" name='name' placeholder="Nome do Cliente" value="<%= clients.name %>" >
+                        </div>
+                    </div>
+                    <div class="col-md-3 my-auto  alert alert-danger" >
+                        <h5 class="text-center"> Cliente N.: &nbsp; <%= clients.number %></h5>
+                    </div>
+                 </div>
+                 
+                 <div class="row">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="name">Telefone</label>
+                            <input type="text" class="form-control" id="phone" name='phone' placeholder="Telefone" value="<%= clients.phone %>" >
+                        </div>
+                     </div>
+                     <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="name">Email/Rede Social</label>
+                            <input type="text" class="form-control" id="socialMedia" name='socialMedia' placeholder="Email/Rede Social" value="<%= clients.socialMedia %>" >
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Editar Cadastro</button>
+                <a href="/clientes/buscar"><button type="button" class="btn btn-secondary">Cancelar</button></a>
+                 
+             </form>
+         </div>
+     </div>
+ 
+ </div>
+ 
+ <%- include('footer') %>

@@ -14,6 +14,7 @@ const Caixa = mongoose.model('values')
 const db = require('./config/db')
 const bcrypt = require('bcryptjs')
 const User = mongoose.model('users')
+autoIncrement = require('mongoose-auto-increment')
 
 
 
@@ -36,7 +37,8 @@ app.use((req, res, next) => {
  
 
 mongoose.Promise = global.Promise
-mongoose.connect(db.mongoURI).then(()=> {
+
+const conn = mongoose.connect(db.mongoURI).then(()=> {
 console.log('Conectado ao banco MongoDB dbCaixas')
 }).catch((err)=> {
     console.log('Houve um erro ao se conectar ao MongoDB, '+ err)
@@ -70,3 +72,4 @@ app.listen(PORT, ()=> {
     console.log(`Server running in port ${PORT}`)
 }) 
 
+module.exports = conn 

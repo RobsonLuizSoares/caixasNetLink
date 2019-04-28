@@ -13,27 +13,27 @@ const SendValues = new Schema({
     },
     copyP: {
         type: Number,
-        required: true
+        required: false
     },
     copyL: {
         type: Number,
-        required: true
+        required: false
     },
     printP: {
         type: Number,
-        required: true
+        required: false
     },
     printL: {
         type: Number,
-        required: true
+        required: false
     },
     laserC: {
         type: Number,
-        required: true
+        required: false
     },
     jetC: {
         type: Number,
-        required: true
+        required: false
     },
     plotter: {
         type: Number,
@@ -41,11 +41,11 @@ const SendValues = new Schema({
     },
     products: {
         type: Number,
-        required: true
+        required: false
     },
     internet: {
         type: Number,
-        required: true
+        required: false
     },
     date: {
         type: Date,
