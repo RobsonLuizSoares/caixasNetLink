@@ -165,3 +165,6 @@ border-color: #2ecc71;
 #confirmBtn {
 display: none;
 }
+#createClientBtn {
+    display: none;
+}
