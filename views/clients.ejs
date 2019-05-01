@@ -7,7 +7,7 @@
     <h3 class="text-center"> Lista de Clientes Cadastrados:</h3>
     <hr />
     <div class="col-md-10 mx-auto">
-        <input type="text" class="form-control my-2" placeholder="Buscar cliente ...">
+        <select type="text" class="form-control my-2 js-data-example-ajax" placeholder="Buscar cliente ..."> </select>
     </div>
     <div class="form-group mx-auto col-md-12"> 
     <a href="/"><button class="btn btn-primary">Voltar</button></a>
@@ -74,4 +74,22 @@
     <% }) %>
 </div>
 </div>
+
+<script type="text/javascript">
+
+$('.js-data-example-ajax').select2({
+  ajax: {
+    url: 'http://caixas-netlink.herokuapp.com/clientes',
+    dataType: 'json',
+    delay: 250,
+    data: function (params) {
+      return {
+        q: params.name, // search term
+        page: params.page
+      }
+    // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+  }
+}
+});
+</script>
 <%- include('footer') %>

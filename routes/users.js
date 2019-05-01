@@ -114,11 +114,16 @@ router.get('/clientes/buscar', (req, res, err) => {
         }else{
            res.render('msgError')  
         }
-         
-       
+     })
+})
+//Rota Listar Clientes JSON
+
+router.get('/clientes', (req, res, err) => {
+
+    Client.find({}, (err, data) => {
+        if(err)return res.send({ err: 'Erro ao consultar clientesJSON'})
+        return res.send(data)
     })
-    
-   
 })
 
 //Rota para Editar Clientes
@@ -145,6 +150,7 @@ router.post('/clientes/edit', (req, res) => {
         clients.name = req.body.name
         clients.socialMedia = req.body.socialMedia
         clients.phone = req.body.phone
+        
         
         clients.save().then(() => {
             console.log('Cadastro alterado com sucesso')

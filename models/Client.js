@@ -19,6 +19,7 @@ var Client = new Schema({
     },
     birthday: {
         type: String,
+        
     },
     phone: {
         type: String,
