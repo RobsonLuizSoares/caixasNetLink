@@ -83,9 +83,14 @@ $('.js-data-example-ajax').select2({
     dataType: 'json',
     delay: 250,
     data: function (params) {
+        var query = {
+            search: params.term,
+            type: 'name'
+        }
       return {
-        q: params.name, // search term
-        page: params.page
+        query,
+        q: params.name // search term
+       
       }
     // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
   }
